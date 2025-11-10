@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Gab's Big Siomai">
+    <title>Gab's Big Siomai</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #dc2626 !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-icon {
+            width: 45px;         
+            height: 45px;
+            border-radius: 50%;  
+            overflow: hidden;  
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .nav-link {
+            color: #374151 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #dc2626 !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: #dc2626 !important;
+        }
+
+        .btn-order {
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            border: none;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-order:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #dc2626, #f97316, #fbbf24);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle-1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-highlight {
+            color: #fbbf24;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: white;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.1s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+        }
+
+        .btn-primary-hero {
+            background: white;
+            color: #dc2626;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary-hero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary-hero {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-hero:hover {
+            background: white;
+            color: #dc2626;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-image img {
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #fbbf24, #f97316);
+            border-radius: 30px;
+            filter: blur(60px);
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #dc2626;
+        }
+
+        .section-divider {
+            width: 160px;
+            text-align: center;
+            height: 4px;
+            background: linear-gradient(135deg, #b91010, #f97316);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        /* Menu Section */
+        #menu {
+            background: white;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .menu-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            margin-bottom: 30px;
+            flex: 1 1 calc(25% - 15px); 
+            min-width: 250px; 
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-card-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-card-img {
+            transform: scale(1.1);
+        }
+
+        .menu-card-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #dc2626;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .menu-card-body {
+            padding: 25px;
+        }
+
+        .menu-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .menu-card-text {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .btn-order-item {
+            width: 100%;
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-order-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Highlights Section Styles */
+        .highlight-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .highlight-card:hover .highlight-img {
+            transform: scale(1.1);
+        }
+
+        .highlight-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .highlight-overlay h5 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        #about {
+            background: linear-gradient(135deg, #fff7ed, #fee2e2);
+        }
+
+        .about-image {
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding-left: 30px;
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            color: #4b5563;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: white;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #fef3c7, #fed7aa);
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover .social-icon {
+            transform: scale(1.1);
+        }
+
+        .facebook-icon {
+            background: #1877f2;
+        }
+
+        /*.instagram-icon {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+        }
+
+        .tiktok-icon {
+            background: #000000;
+        }*/
+
+        .social-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .social-handle {
+            color: #6b7280;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-info p {
+            color: #374151;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                padding-left: 0;
+                margin-top: 30px;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary-hero,
+            .btn-secondary-hero {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Fade in animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Part */
+        @media (max-width: 768px) {
+            /* Hero Section */
+            .hero-section {
+                padding-top: 60px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image img {
+                height: 300px;
+                margin-top: 30px;
+            }
+
+            /* Menu Section */
+            .menu-card {
+                margin-bottom: 20px;
+            }
+
+            /* Highlights Section */
+            .highlight-card {
+                margin-bottom: 20px;
+            }
+
+            /* About Section */
+            .about-image {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .about-content {
+                text-align: center;
+                padding: 0 15px;
+            }
+
+            .section-divider {
+                margin: 15px auto;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            /* Contact Section */
+            .social-card {
+                margin-bottom: 20px;
+            }
+
+            .contact-info {
+                padding: 0 15px;
+            }
+
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+
+            /* Navigation */
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .brand-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-link {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .btn-order {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            /* Section Titles */
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+        }
+
+        /* Additional Responsive Fixes */
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .price-badge {
+                font-size: 0.9rem;
+                padding: 5px 15px;
+            }
+
+            .menu-card-title {
+                font-size: 1.2rem;
+            }
+
+            .contact-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <div class="brand-icon"><img src="./images/logoSiomai.jpg"></div>
+                Gab's Big Siomai
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#highlights">Highlights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-order" onclick="handleOrderNow()">Order Now</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="floating-circle circle-1"></div>
+        <div class="floating-circle circle-2"></div>
+        <div class="floating-circle circle-3"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-badge">✨ Est. 2024</div>
+                    <h1 class="hero-title">
+                        Taste the Biggest<br>
+                        <span class="hero-highlight">Siomai in Town!</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary-hero" onclick="scrollToSection('menu')">
+                            View Menu
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                        <button class="btn-secondary-hero" onclick="handleOrderNow()">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <div class="hero-glow"></div>
+                    <img src="./images/mainPage.jpg" alt="Delicious Siomai">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="highlights" style="background: #fff7ed;">
+        <div class="container">
+            <h2 class="section-title fade-in">Our <span>Highlights</span></h2>
+            <div class="section-divider fade-in"></div>
+            <p class="section-subtitle fade-in">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="highlight-card">
+                        <img src="./images/tabang.jpg" alt="Store Front" class="highlight-img">
+                        <div class="highlight-overlay">
+                            <h5>Tabang Branch</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="highlight-card">
+                        <img src="./images/customers.jpg" alt="Happy Customers" class="highlight-img">
+                        <div class="highlight-overlay">
+                            <h5>Happy Customers</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="highlight-card">
+                        <img src="./images/sf.jpg" alt="Store Interior" class="highlight-img">
+                        <div class="highlight-overlay">
+                            <h5>SF Xavier Branch</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="highlight-card">
+                        <img src="./images/fcart.jpg" alt="Food Cart" class="highlight-img">
+                        <div class="highlight-overlay">
+                            <h5>Food Cart Location</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="highlight-card">
+                        <img src="./images/bambang.jpg" alt="Store Front" class="highlight-img">
+                        <div class="highlight-overlay">
+                            <h5>Bambang Branch</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="highlight-card">
+                        <img src="./images/customer.jpg" alt="Customer Reviews" class="highlight-img">
+                        <div class="highlight-overlay">
+                            <h5>Customer Reviews</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title fade-in">Our <span>Signature</span> Menu</h2>
+            <div class="section-divider fade-in"></div>
+            <p class="section-subtitle fade-in">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="./images/pic.jpg" class="menu-card-img" alt="Pork Siomai">
+                            <div class="price-badge">₱50</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="./images/repic.png" class="menu-card-img" alt="Japanese Siomai">
+                            <div class="price-badge">₱60</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in"> 
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1762418967889-10abec43c325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwZHVtcGxpbmdzJTIwYmFtYm9vfGVufDF8fHx8MTc2MjcwMTgxMnww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Japanese Siomai">
+                            <div class="price-badge">₱60</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1762418967889-10abec43c325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwZHVtcGxpbmdzJTIwYmFtYm9vfGVufDF8fHx8MTc2MjcwMTgxMnww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Japanese Siomai">
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556771249-6a012be256ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjByZXN0YXVyYW50fGVufDF8fHx8MTc2MjY2NDQwMXww&ixlib=rb-4.1.0&q=80&w=1080" class="menu-card-img" alt="Beef Siomai">
+                            <div class="price-badge">₱55</div>
+                        </div>
+                        <div class="menu-card-body">
+                            <h5 class="menu-card-title">Lorem Ipsum</h5>
+                            <p class="menu-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="btn btn-order-item" onclick="handleOrderNow()">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in">
+                    <img src="./images/aboutPic.jpg" alt="About" class="about-image">
+                </div>
+                <div class="col-lg-6 about-content fade-in">
+                    <h2>About</h2>
+                    <div class="section-divider" style="margin-left: 0;"></div>
+                    
+                    <p class="about-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <p class="about-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <p class="about-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Years Serving</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10k+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Fresh Daily</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get in <span>Touch</span></h2>
+            <div class="section-divider fade-in"></div>
+            <p class="section-subtitle fade-in">
+                Follow us on social media for updates, promos, and mouth-watering siomai content!
+            </p>
+
+            <div class="contact-card fade-in">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <a href="https://www.facebook.com/GabsBigSiomaiAtbp" target="_blank" class="text-decoration-none">
+                            <div class="social-card">
+                                <div class="social-icon facebook-icon">
+                                    <i class="bi bi-facebook"></i>
+                                </div>
+                                <h5 class="social-title">Facebook</h5>
+                                <p class="social-handle">@gabsiomai</p>
+                                <h3 class="social-title">Message Us for Orders</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <!--<div class="col-lg-4 col-md-6">
+                        <a href="https://instagram.com" target="_blank" class="text-decoration-none">
+                            <div class="social-card">
+                                <div class="social-icon instagram-icon">
+                                    <i class="bi bi-instagram"></i>
+                                </div>
+                                <h5 class="social-title">Instagram</h5>
+                                <p class="social-handle">@gabsiomai</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="https://tiktok.com" target="_blank" class="text-decoration-none">
+                            <div class="social-card">
+                                <div class="social-icon tiktok-icon">
+                                    <i class="bi bi-tiktok"></i>
+                                </div>
+                                <h5 class="social-title">TikTok</h5>
+                                <p class="social-handle">@gabsiomai</p>
+                            </div>
+                        </a>
+                    </div>-->
+                </div>
+
+                <div class="contact-info">
+                    <p><i class="bi bi-geo-alt-fill"></i> Tabang Branch - Beside Osave Tabang, Guiguinto, Bulacan</p>
+                    <p><i class="bi bi-geo-alt-fill"></i> Food Cart - In front Plaza del Pilar San Jose Bulakan, Bulacan </p>
+                    <p><i class="bi bi-geo-alt-fill"></i> SF Xavier Branch - Near SF Xavier High School, Bulakan, Bulacan</p>
+                    <p><i class="bi bi-geo-alt-fill"></i> Bambang Branch - Purok 4, Bambang (Sto. Cristo Chapel), Bulakan, Bulacan</p>
+                    <p><i class="bi bi-telephone-fill"></i> +63 912 345 6789</p>
+                    <p><i class="bi bi-clock-fill"></i> Open Daily: 9:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-2">© 2024 Gab's Big Siomai. All rights reserved.</p>
+            <p style="opacity: 0.9;">DOGE123 PASSWORD SABI NI SIR LECH</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = element.offsetTop - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.getElementById('navbarNav');
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
+            }
+        }
+
+        // Handle Order Now button
+        function handleOrderNow() {
+            scrollToSection('contact');
+        }
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger animation to menu cards
+        document.querySelectorAll('.menu-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+
+</body>
+</html>
